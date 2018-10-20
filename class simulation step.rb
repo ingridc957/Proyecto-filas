@@ -41,7 +41,7 @@ class Simulation_Step < Structure_Simulation
 			# @lines[index].push(@users.first)
 			puts "lines DESPUES de meter usuario CON INDEX #{@lines}"
 			@users.replace(@users.drop(1))
-			break if @users.length > 0
+			break if @users.length = 0
 		end
 	end
 
@@ -119,7 +119,7 @@ class Simulation_Step < Structure_Simulation
 		puts "Este es el minuto en el que vamos #{@minute*60}"
 		# puts "Filas #{ @lines}"
 		puts "Filas"
-		puts @lines
+		print @lines
 		puts "Número de filas "
 		puts @lines.length
 		puts "Estado de las cajas"
