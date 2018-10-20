@@ -5,16 +5,6 @@ class Simulation_Step < Structure_Simulation
 		@users_served = []
 		@minute = 1
 	end
-	# def finalized_purchase(minute)
-	#
-	#   for cashier in  Array(1..@number_of_cashiers) do
-	#
-	#     if @cash_registers[cashier].nil? next
-	#     else
-	#       @cash_registers[cashier][:end_purchase]
-	#     end
-	#   end
-	# end
 
 	def shortest_row
 		lengths = []
@@ -23,8 +13,6 @@ class Simulation_Step < Structure_Simulation
 		end
 		minimum = lengths.min
 		index = lengths.find_index(minimum)
-		#puts "La fila que dio más corta es #{index}"
-		#puts "gente en fila #{lengths}"
 		return index
 	end
 
@@ -32,14 +20,9 @@ class Simulation_Step < Structure_Simulation
 
 		while @users.first[:arrival_time] < @minute*60
 			index = self.shortest_row
-			#puts "imprimiendo index #{index}"
-			#puts "lines antes de meter usuario #{@lines}"
-			#puts "aqui lo va a meter #{@lines[index]} "
 			new_line = @lines[index]
 			new_line.push(@users.first)
 			@lines[index].replace(new_line)
-			# @lines[index].push(@users.first)
-			#puts "lines DESPUES de meter usuario CON INDEX #{@lines}"
 			@users.replace(@users.drop(1))
 			break if @users.length == 0
 		end
@@ -100,7 +83,6 @@ class Simulation_Step < Structure_Simulation
 	end
 
 	def run_simulation
-		#self.mostrando
 		canvas = Canvas.new()
 		canvas.show(@lines, @cash_registers)
 		init_time = Time.now.strftime("%S")
@@ -112,7 +94,6 @@ class Simulation_Step < Structure_Simulation
 			else
 				self.fill_cashier_multiple_lines
 			end
-			#self.mostrando
 			delay = 0
 			while delay < @duration_simulation_step
 				time = Time.now.strftime("%S")
@@ -127,25 +108,6 @@ class Simulation_Step < Structure_Simulation
 			@minute += 1
 		end
 		self.avgtime
-	end
-
-	def mostrando
-		puts "000000000000000000000000000000000000000000000000000000000000"
-		puts "Este es el minuto en el que vamos #{@minute}"
-		# puts "Filas #{ @lines}"
-		puts "Filas"
-		print @lines
-		puts "Número de filas "
-		puts @lines.length
-		puts "Estado de las cajas"
-		puts @cash_registers
-		puts "Número de cajas"
-		puts @cash_registers.length
-		puts "Usuarios por llegar"
-		puts @users
-		puts "Usuarios atendidos1"
-		puts @users_served
-		puts "===================================================================="
 	end
 
 	def avgtime

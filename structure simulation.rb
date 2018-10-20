@@ -1,6 +1,5 @@
 class Structure_Simulation
 
-
 	def initialize(rows_system, number_of_cashiers, simulation_time, duration_simulation_step)
 		@rows_system = rows_system
 		@number_of_cashiers = number_of_cashiers
@@ -49,9 +48,4 @@ class Structure_Simulation
 	def users
 		@users
 	end
-
-# def testing_method
-# 	puts "mostrando shift_user #{@lines[0].first.class}"
-# end
-
 end

@@ -7,19 +7,14 @@ class Random_Values
 		@user_service_period = []
 	end
 	def users_number(simulation_time)
-		# users_per_time_interval = []
-		# prng = Random.new
 		clients_interval = simulation_time/3 + 1
 		clients_interval.times {
-			# users << prng.rand(0..5)
 			@frequency_of_users << rand(0..5)
 		}
 		return @frequency_of_users
 	end
 
-	# def arrival_times(@frequency_of_users)
 	def arrival_times
-		# at = []
 		i = 0
 		for users in @frequency_of_users do
 			users.times {
@@ -48,10 +43,3 @@ class Random_Values
 		return @user_service_period
 	end
 end
-
-# potato = Random_Values.new
-#
-# puts" numero de usuarios #{potato.users_number(25)}"
-# puts "Arriva time #{potato.arrival_times}"
-# puts "names #{potato.names}"
-# puts "service period #{potato.service_period}"

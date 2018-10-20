@@ -43,8 +43,8 @@ protected
       end
       @userInfo << input
     when 4
-      while (input <= 0)
-        print("Respuesta incorrecta. Ingrese un tiempo mayor a 0 (Delay entre cada iteración): ")
+      while (input < 0)
+        print("Respuesta incorrecta. Ingrese un tiempo mayor o igual a 0 (Delay entre cada iteración): ")
         input = gets.chomp.to_i
       end
       @userInfo << input
