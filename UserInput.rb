@@ -12,13 +12,13 @@ class UserInput
 
 protected
   def read()
-    print("Para única fila ingrese 1, para múltiples filas ingrese 0: ")
+    print("If you want an unique line, please enter 1, otherwise enter 0: ")
     self.validate(gets.chomp.to_i, 1)
-    print("Ingrese el número de cajas activas: ")
+    print("Please, enter the number of active cashiers: ")
     self.validate(gets.chomp.to_i, 2)
-    print("Ingrese el tiempo de la simulación en minutos: ")
+    print("Now, enter the time (in minutes) that you want to simulate: ")
     self.validate(gets.chomp.to_i, 3)
-    print("Ingrese el delta de tiempo para cada iteración: ")
+    print("Finally, enter the interval time(in seconds) that you want to dalay each iteration:")
     self.validate(gets.chomp.to_i, 4)
   end
 
@@ -26,25 +26,25 @@ protected
     case n
     when 1
       while (input != 1 && input != 0)
-        print("Respuesta incorrecta. Para unica fila ingrese 1, para multiples filas ingrese 0: ")
+        print("Wrong input. If you want an unique line, please enter 1, otherwise enter 0: ")
         input = gets.chomp.to_i
       end
       @userInfo << input
     when 2
       while (input <= 0)
-        print("Respuesta incorrecta. Ingrese el número de cajas activas: ")
+        print("Wrong input. Enter the number of active cashiers: ")
         input = gets.chomp.to_i
       end
       @userInfo << input
     when 3
       while (input <= 0)
-        print("Respuesta incorrecta. Ingrese un tiempo mayor a 0 (Tiempo de simulación): ")
+        print("Wrong input. Time can't be negative or zero, enter the time (in minutes) that you want to simulate: ")
         input = gets.chomp.to_i
       end
       @userInfo << input
     when 4
       while (input < 0)
-        print("Respuesta incorrecta. Ingrese un tiempo mayor o igual a 0 (Delay entre cada iteración): ")
+        print("Wrong input. Enter the interval time(in seconds) that you want to dalay each iteration, it can't be negative: ")
         input = gets.chomp.to_i
       end
       @userInfo << input

@@ -3,6 +3,7 @@ load 'users atributes.rb'
 load 'class random values.rb'
 load 'class simulation step.rb'
 load 'UserInput.rb'
+load 'results.rb'
 load 'Canvas.rb'
 
 userInfo = UserInput.new()
@@ -14,3 +15,7 @@ duration_simulation_step = info[3]
 stage = Simulation_Step.new(rows_system, number_of_cashiers, simulation_time, duration_simulation_step)
 stage.set_stage
 stage.run_simulation
+
+stage.users_served
+av_waiting_time = Simulation_results.new
+av_waiting_time.average_waiting_time(stage.users_served)

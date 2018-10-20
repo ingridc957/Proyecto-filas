@@ -107,16 +107,16 @@ class Simulation_Step < Structure_Simulation
 			init_time = time
 			@minute += 1
 		end
-		self.avgtime
+		# self.avgtime
 	end
 
-	def avgtime
-		times = 0
-		@users_served.each do |user|
-			times = times + user[:waiting_time]
-		end
-		puts "Promedio de espera: #{(times/@users_served.length)/60} minutos."
-	end
+	# def avgtime
+	# 	times = 0
+	# 	@users_served.each do |user|
+	# 		times = times + user[:waiting_time]
+	# 	end
+	# 	puts "Promedio de espera: #{(times/@users_served.length)/60} minutos."
+	# end
 
 	def users_served
 		@users_served
