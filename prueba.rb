@@ -44,9 +44,14 @@ load 'structure simulation.rb'
 load 'users atributes.rb'
 load 'class random values.rb'
 load 'class simulation step.rb'
+load 'results.rb'
 
 # stage = Structure_Simulation.new(rows_system, number_of_cashiers, simulation_time, duration_simulation_step)
 stage = Simulation_Step.new(0, 3, 30, 9)
 stage.set_stage
 # stage.testing_method
 stage.run_simulation
+stage.users_served
+
+av_waiting_time = Simulation_results.new
+av_waiting_time.average_waiting_time(stage.users_served)
