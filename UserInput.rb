@@ -12,7 +12,7 @@ class UserInput
 
 protected
   def read()
-    print("Para única fila ingrese 1, para múltiples filas ingrese 2: ")
+    print("Para única fila ingrese 1, para múltiples filas ingrese 0: ")
     self.validate(gets.chomp.to_i, 1)
     print("Ingrese el número de cajas activas: ")
     self.validate(gets.chomp.to_i, 2)
