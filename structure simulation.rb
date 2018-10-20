@@ -18,7 +18,7 @@ class Structure_Simulation
 		if @rows_system == 1
 			lines = Array.new(1,[])
 		elsif @rows_system == 0
-			lines = Array.new(@number_of_cashiers,[])
+			lines = Array.new(@number_of_cashiers, [])
 		end
 		return lines
 	end
@@ -46,6 +46,8 @@ class Structure_Simulation
 		@users
 	end
 
-
+# def testing_method
+# 	puts "mostrando shift_user #{@lines[0].first.class}"
+# end
 
 end

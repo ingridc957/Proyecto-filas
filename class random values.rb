@@ -35,7 +35,7 @@ class Random_Values
 		total_users = @frequency_of_users.reduce(:+)
 		letters =  Array('a'..'z')-['c']
 		total_users.times {
-			@users_names << letters[rand(25)]
+			@users_names << letters[rand(25)]+letters[rand(25)]
 		}
 		return @users_names
 	end
