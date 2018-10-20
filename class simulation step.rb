@@ -134,7 +134,7 @@ class Simulation_Step < Structure_Simulation
 		puts "Este es el minuto en el que vamos #{@minute}"
 		# puts "Filas #{ @lines}"
 		puts "Filas"
-		puts @lines
+		print @lines
 		puts "Número de filas "
 		puts @lines.length
 		puts "Estado de las cajas"
