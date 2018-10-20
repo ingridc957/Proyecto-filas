@@ -41,7 +41,7 @@ class Simulation_Step < Structure_Simulation
 			# @lines[index].push(@users.first)
 			puts "lines DESPUES de meter usuario CON INDEX #{@lines}"
 			@users.replace(@users.drop(1))
-			break if @users.length = 0
+			break if @users.length == 0
 		end
 	end
 
