@@ -29,6 +29,7 @@ class Simulation_Step < Structure_Simulation
 	end
 
 	def stand_in_line
+
 		while @users.first[:arrival_time] < @minute*60
 			index = self.shortest_row
 			puts "imprimiendo index #{index}"
@@ -40,6 +41,7 @@ class Simulation_Step < Structure_Simulation
 			# @lines[index].push(@users.first)
 			puts "lines DESPUES de meter usuario CON INDEX #{@lines}"
 			@users.replace(@users.drop(1))
+			break if @users.length > 0
 		end
 	end
 
