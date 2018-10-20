@@ -24,7 +24,6 @@ class Structure_Simulation
 				lines << []
 			end
 		end
-		print lines
 		return lines
 	end
 

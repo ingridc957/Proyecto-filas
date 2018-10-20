@@ -23,23 +23,25 @@ class Simulation_Step < Structure_Simulation
 		end
 		minimum = lengths.min
 		index = lengths.find_index(minimum)
-		puts "La fila que dio más corta es #{index}"
-		puts "gente en fila #{lengths}"
+		#puts "La fila que dio más corta es #{index}"
+		#puts "gente en fila #{lengths}"
 		return index
 	end
 
 	def stand_in_line
+
 		while @users.first[:arrival_time] < @minute*60
 			index = self.shortest_row
-			puts "imprimiendo index #{index}"
-			puts "lines antes de meter usuario #{@lines}"
-			puts "aqui lo va a meter #{@lines[index]} "
-			new_line = []
+			#puts "imprimiendo index #{index}"
+			#puts "lines antes de meter usuario #{@lines}"
+			#puts "aqui lo va a meter #{@lines[index]} "
+			new_line = @lines[index]
 			new_line.push(@users.first)
 			@lines[index].replace(new_line)
-			 @lines[index].push(@users.first)
-			puts "lines DESPUES de meter usuario CON INDEX #{@lines}"
+			# @lines[index].push(@users.first)
+			#puts "lines DESPUES de meter usuario CON INDEX #{@lines}"
 			@users.replace(@users.drop(1))
+			break if @users.length == 0
 		end
 	end
 
@@ -99,6 +101,9 @@ class Simulation_Step < Structure_Simulation
 
 	def run_simulation
 		#self.mostrando
+		canvas = Canvas.new()
+		canvas.show(@lines, @cash_registers)
+		init_time = Time.now.strftime("%S")
 		while @minute <= @simulation_time
 			self.stand_in_line if @users.length > 0
 			self.empty_cashier
@@ -108,13 +113,25 @@ class Simulation_Step < Structure_Simulation
 				self.fill_cashier_multiple_lines
 			end
 			#self.mostrando
+			delay = 0
+			while delay < @duration_simulation_step
+				time = Time.now.strftime("%S")
+				time = time.to_i
+				if time < init_time.to_i
+					time = time + 60
+				end
+				delay = time - init_time.to_i
+			end
+			canvas.show(@lines, @cash_registers)
+			init_time = time
 			@minute += 1
 		end
+		self.avgtime
 	end
 
 	def mostrando
 		puts "000000000000000000000000000000000000000000000000000000000000"
-		puts "Este es el minuto en el que vamos #{@minute*60}"
+		puts "Este es el minuto en el que vamos #{@minute}"
 		# puts "Filas #{ @lines}"
 		puts "Filas"
 		puts @lines
@@ -131,8 +148,16 @@ class Simulation_Step < Structure_Simulation
 		puts "===================================================================="
 	end
 
-def users_served
-	@users_served
-end
+	def avgtime
+		times = 0
+		@users_served.each do |user|
+			times = times + user[:waiting_time]
+		end
+		puts "Promedio de espera: #{(times/@users_served.length)/60} minutos."
+	end
+
+	def users_served
+		@users_served
+	end
 
 end
