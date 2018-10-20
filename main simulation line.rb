@@ -5,6 +5,7 @@ load 'users atributes.rb'
 load 'class random values.rb'
 load 'class simulation step.rb'
 load 'UserInput.rb'
+load 'Canvas.rb'
 
 # stage = Structure_Simulation.new(rows_system, number_of_cashiers, simulation_time, duration_simulation_step)
 userInfo = UserInput.new()
