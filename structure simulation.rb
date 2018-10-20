@@ -16,10 +16,15 @@ class Structure_Simulation
 
 	def make_lines
 		if @rows_system == 1
-			lines = Array.new(1,[])
+			lines = []
+			lines << []
 		elsif @rows_system == 0
-			lines = Array.new(@number_of_cashiers, [])
+			lines = []
+			for i in (1..@number_of_cashiers)
+				lines << []
+			end
 		end
+		print lines
 		return lines
 	end
 

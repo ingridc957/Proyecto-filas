@@ -34,10 +34,10 @@ class Simulation_Step < Structure_Simulation
 			puts "imprimiendo index #{index}"
 			puts "lines antes de meter usuario #{@lines}"
 			puts "aqui lo va a meter #{@lines[index]} "
-			new_line = @lines[index]
+			new_line = []
 			new_line.push(@users.first)
 			@lines[index].replace(new_line)
-			# @lines[index].push(@users.first)
+			 @lines[index].push(@users.first)
 			puts "lines DESPUES de meter usuario CON INDEX #{@lines}"
 			@users.replace(@users.drop(1))
 		end
@@ -98,7 +98,7 @@ class Simulation_Step < Structure_Simulation
 	end
 
 	def run_simulation
-		self.mostrando
+		#self.mostrando
 		while @minute <= @simulation_time
 			self.stand_in_line if @users.length > 0
 			self.empty_cashier
@@ -107,7 +107,7 @@ class Simulation_Step < Structure_Simulation
 			else
 				self.fill_cashier_multiple_lines
 			end
-			self.mostrando
+			#self.mostrando
 			@minute += 1
 		end
 	end

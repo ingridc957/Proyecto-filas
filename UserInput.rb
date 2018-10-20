@@ -25,7 +25,7 @@ protected
   def validate(input, n)
     case n
     when 1
-      while (input != 1 && input != 2)
+      while (input != 1 && input != 0)
         print("Respuesta incorrecta. Para unica fila ingrese 1, para multiples filas ingrese 2: ")
         input = gets.chomp.to_i
       end
