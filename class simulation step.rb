@@ -128,8 +128,11 @@ class Simulation_Step < Structure_Simulation
 		puts @users
 		puts "Usuarios atendidos1"
 		puts @users_served
-
 		puts "===================================================================="
 	end
+
+def users_served
+	@users_served
+end
 
 end
